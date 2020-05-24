@@ -42,7 +42,7 @@ module.exports = (robot) => {
 
                     robot.logger.debug(`Saving ${key} into brain...`);
                     cache[key] = value;
-                    collection.update({_id:key},{$set:{content:JSON.stringify(value)}}, upsert:true, (err, res) => {
+                    collection.update({_id:key},{$set:{content:JSON.stringify(value)}}, {upsert: true}, (err, res) => {
                         if(err) {
                             robot.logger.error(err);
                         }
