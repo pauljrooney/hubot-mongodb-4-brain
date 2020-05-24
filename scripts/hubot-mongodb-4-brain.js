@@ -4,7 +4,7 @@ module.exports = (robot) => {
     const MONGODB_URL = process.env.MONGODB_URL;
 
     mdb_client.connect(MONGODB_URL, (err, client) => {
-        let db = client.db();
+        let db = client.db("tsbot");
 
         robot.logger.info("Connected to MongoDB.");
 	robot.brain.on("close", () => {
