@@ -5,7 +5,7 @@
   "name": "hubot-mongodb-4-brain",
   "description": "MongoDB brain for hubot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "scripts/hubot-mongodb-4-brain.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
