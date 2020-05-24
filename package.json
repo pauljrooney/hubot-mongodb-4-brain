@@ -1,5 +1,28 @@
 {
   "dependencies": {
     "mongodb": "^3.5.7"
-  }
+  },
+  "name": "hubot-mongodb-4-brain",
+  "description": "MongoDB brain for hubot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauljrooney/hubot-mongodb-4-brain.git"
+  },
+  "keywords": [
+    "hubot",
+    "brain",
+    "mongodb"
+  ],
+  "author": "Paul Rooney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pauljrooney/hubot-mongodb-4-brain/issues"
+  },
+  "homepage": "https://github.com/pauljrooney/hubot-mongodb-4-brain#readme"
 }
