@@ -7,7 +7,7 @@ module.exports = (robot) => {
         let db = client.db("tsbot");
 
         robot.logger.info("Connected to MongoDB.");
-	robot.brain.on("close", () => {
+        robot.brain.on("close", () => {
             client.close();
         });
         robot.brain.setAutoSave(false);
@@ -22,7 +22,7 @@ module.exports = (robot) => {
                 data = {};
 
                 for(doc in docs) {
-                    let docContent = JSON.parse(doc.content);
+                    let docContent = doc.content;
                     data[doc._id] = docContent;
                     cache[doc._id] = docContent;
                 }
@@ -35,14 +35,14 @@ module.exports = (robot) => {
 
         robot.brain.on("save", (data) => {
             db.collection("brain", (err, collection) => {
-                for(const [key, value] of data) {
+                for(const [key, value] of Object.entries(data)) {
                     if(cache[key] === value) {
                         return;
                     }
 
-                    robot.logger.debug(`Saving ${key} into brain...`);
+                    robot.logger.info(`Saving ${key} into brain...`);
                     cache[key] = value;
-                    collection.update({_id:key},{$set:{content:JSON.stringify(value)}}, {upsert: true}, (err, res) => {
+                    collection.updateOne({_id:key},{$set:{content:value}}, {upsert: true}, (err, res) => {
                         if(err) {
                             robot.logger.error(err);
                         }
