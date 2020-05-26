@@ -14,7 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/pauljrooney/hubot-mongodb-4-brain.git"
   },
-  "type":"module",
   "keywords": [
     "hubot",
     "brain",
